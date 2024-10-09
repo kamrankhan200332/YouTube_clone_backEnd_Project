@@ -11,7 +11,7 @@
     "javaScript",
     "backEnd"
   ],
-  "author": "Kamran Khan and Prof Dr. Ali Ahmad",git config --global core.autocrlf true
+  "author": "Kamran Khan and Prof Dr. Ali Ahmad",
 
   "license": "ISC",
   "devDependencies": {
