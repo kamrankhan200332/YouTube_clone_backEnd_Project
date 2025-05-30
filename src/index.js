@@ -1,39 +1,28 @@
+const express = require("express");
+const { PORT, CORS_ORIGIN } = require("./config");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const dbConnection = require("./db");
+const app = express();
 
-// require('dotenv').config({ path: './env' });
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(cookieParser());
 
-import dotenv from 'dotenv';
-import connectDB from "./db/index.js";
+app.use(
+  cors({
+    origin: CORS_ORIGIN,
+    credentials: true,
+  })
+);
 
+dbConnection();
 
-dotenv.config({
-    path: './env'
-})
+app.listen(PORT || 8000, () => {
+  console.log(`Server is running on http://localhost:${PORT || 8000}`);
+});
 
-connectDB()
-
-
-
-
-
-// import mongoose from "mongoose";
-// import { DB_NAME } from "./constants";
-// import { express } from "express";
-
-// const app = express()
-
-// ( async () => {
-//     try {
-//         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-//         app.on("error", (error) => {
-//             console.log("ERROR: ", error)
-//         })
-
-//         app.listen(process.env.PORT, () => {
-//             console.log(`App is listening on port ${process.env.PORT}`)
-//         })
-//     }
-//     catch (error) {
-//         console.error("ERROR", error)
-//         throw error
-//     }
-// }) ()
+app.get("/", (req, res) => {
+  res.send("Server is ready...");
+});

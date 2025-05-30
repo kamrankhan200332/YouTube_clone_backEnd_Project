@@ -2,10 +2,11 @@
   "name": "04_project",
   "version": "1.0.0",
   "description": "A backEnd Project",
-  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [
     "javaScript",
@@ -14,12 +15,14 @@
   "author": "Kamran Khan and Prof Dr. Ali Ahmad",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.7",
+    "nodemon": "^3.1.10",
     "prettier": "^3.3.3"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1",
-    "mongoose": "^8.7.0"
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "mongoose": "^8.15.1"
   }
 }
