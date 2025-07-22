@@ -6,7 +6,7 @@ const {
   ACCESS_TOKEN_EXPIRY,
   REFRESH_TOKEN_SECRET,
   REFRESH_TOKEN_EXPIRY,
-} = require("../config");
+} = require("../../config");
 
 const userSchema = new mongoose.Schema(
   {
